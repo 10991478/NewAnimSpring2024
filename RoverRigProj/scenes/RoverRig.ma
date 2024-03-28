@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: RoverRig.ma
-//Last modified: Thu, Mar 28, 2024 12:59:53 AM
+//Last modified: Thu, Mar 28, 2024 01:14:01 AM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "9325E1E9-4513-7213-9DB1-3FA686D5B3D4";
+fileInfo "UUID" "B5D55C9B-49EE-51E1-6091-408A4199893D";
 createNode transform -s -n "persp";
 	rename -uid "A12A5B45-4C25-1E68-019F-19BBEBFAA1DE";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 118.85320417156495 89.084209868326965 303.08244491958061 ;
-	setAttr ".r" -type "double3" -4.5383527260782142 -5022.5999999993192 1.0415859697592921e-16 ;
+	setAttr ".t" -type "double3" 87.9123034171337 73.87570854804828 230.37753915379051 ;
+	setAttr ".r" -type "double3" -11.138352580584462 -5378.9999999982228 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "678CB1D1-406A-3EC8-D078-598E3A38B7E2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 334.04214751941993;
+	setAttr ".coi" 194.67561620453807;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -45719,28 +45719,226 @@ createNode joint -n "Camera_Arm_01_Jnt" -p "COG_Jnt";
 	setAttr ".jot" -type "string" "none";
 	setAttr ".jo" -type "double3" 0 0 -90 ;
 	setAttr ".radi" 4;
-createNode joint -n "Camera_Arm_02_Jnt" -p "Camera_Arm_01_Jnt";
-	rename -uid "AD0ED01C-4548-2A6A-7A2F-8F944C59460E";
+createNode joint -n "Camera_Arm_02_FK_Jnt" -p "Camera_Arm_01_Jnt";
+	rename -uid "810F4108-4905-AADB-84EF-81AB58647FD3";
 	setAttr ".t" -type "double3" 6.9000015258788849 2.8999998569488183 3.8146972514141453e-06 ;
+	setAttr ".r" -type "double3" 3.2663453693529321e-15 7.7895641164983572e-15 -1.1206717464255578e-14 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 90.000000000000057 -64.99949838974436 179.99999999999997 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_03_FK_Jnt" -p "Camera_Arm_02_FK_Jnt";
+	rename -uid "378FB431-4049-9DCB-C046-B2B4BA3DFC0D";
+	setAttr ".t" -type "double3" 39.200065656005705 -7.1054273576010019e-15 -1.0880203864528842e-14 ;
+	setAttr ".r" -type "double3" 7.6819691869304056e-15 -1.8533866182121802e-15 9.5075927630035637e-16 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 0 0 145.0004550070766 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_04_FK_Jnt" -p "Camera_Arm_03_FK_Jnt";
+	rename -uid "2D2161EC-4BC6-2F3B-19A3-0CAA9DC99930";
+	setAttr ".t" -type "double3" 33.999986864499057 7.1054273576010019e-15 1.4210854715202004e-14 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "none";
-	setAttr ".jo" -type "double3" 0 0 90 ;
+	setAttr ".jo" -type "double3" 0 0 60.000046603179037 ;
 	setAttr ".radi" 4;
-createNode joint -n "Camera_Arm_03_Jnt" -p "Camera_Arm_02_Jnt";
-	rename -uid "E4E43127-4E56-AEB7-815A-3CA3E1BEC2A8";
-	setAttr ".t" -type "double3" -0.39999985694885609 16.566974639892521 35.527179718017521 ;
+createNode joint -n "Camera_Arm_02_IK_Jnt" -p "Camera_Arm_01_Jnt";
+	rename -uid "4F3192DB-4FE2-92E6-25D5-02A15E1E43EE";
+	setAttr ".t" -type "double3" 6.9000015258788849 2.8999998569488183 3.8146972514141453e-06 ;
+	setAttr ".r" -type "double3" -7.0584778804302312e-15 -1.2129086013878386e-14 -1.3244206030781384e-30 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 90.000000000000043 -64.999498389744346 179.99999999999997 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_03_IK_Jnt" -p "Camera_Arm_02_IK_Jnt";
+	rename -uid "7B32E70E-4028-1803-A1D2-959D4051375C";
+	setAttr ".t" -type "double3" 39.200065656005705 -7.1054273576010019e-15 -1.0880203864528842e-14 ;
+	setAttr ".r" -type "double3" 2.1313097802409817e-30 -6.442854242047145e-29 -5.0992361813995981e-15 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 0 0 145.0004550070766 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_04_IK_Jnt" -p "Camera_Arm_03_IK_Jnt";
+	rename -uid "53184C18-4341-7765-54EE-E0AB5E9B18FF";
+	setAttr ".t" -type "double3" 33.999986864499057 7.1054273576010019e-15 1.4210854715202004e-14 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "none";
+	setAttr ".jo" -type "double3" 0 0 60.000046603179037 ;
 	setAttr ".radi" 4;
-createNode joint -n "Camera_Arm_04_Jnt" -p "Camera_Arm_03_Jnt";
-	rename -uid "F2BAF0AD-4FAD-B3A7-FA41-DF89956F4761";
-	setAttr ".t" -type "double3" -4.9999995231627743 -29.444866180419908 -16.999969482421811 ;
+createNode ikEffector -n "effector1" -p "Camera_Arm_03_IK_Jnt";
+	rename -uid "AE4B2566-47BD-60C6-83BF-3390E9186BAB";
+	setAttr ".v" no;
+	setAttr ".hd" yes;
+createNode joint -n "Camera_Arm_02_RK_Jnt" -p "Camera_Arm_01_Jnt";
+	rename -uid "628C94BA-4D5D-97C9-3179-AB9448E82F45";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 90.000000000000057 -64.99949838974436 179.99999999999997 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_03_RK_Jnt" -p "Camera_Arm_02_RK_Jnt";
+	rename -uid "8662E3CA-4AA1-8A10-CEBA-759B7436A586";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 0 0 145.0004550070766 ;
+	setAttr ".radi" 4;
+createNode joint -n "Camera_Arm_04_RK_Jnt" -p "Camera_Arm_03_RK_Jnt";
+	rename -uid "F05F8FFD-4E07-90BB-DB39-37AC4DB65564";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "none";
+	setAttr ".jo" -type "double3" 0 0 60.000046603179037 ;
 	setAttr ".radi" 4;
+createNode parentConstraint -n "Camera_Arm_04_RK_Jnt_parentConstraint1" -p "Camera_Arm_04_RK_Jnt";
+	rename -uid "A472E06D-4825-BEE0-E872-ACBEE72A800F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_04_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_04_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr ".tg[0].tot" -type "double3" 0 1.4210854715202004e-14 -8.8817841970012523e-16 ;
+	setAttr ".tg[0].tor" -type "double3" 0 0 3.1805546814635168e-15 ;
+	setAttr ".tg[1].tot" -type "double3" 0 1.4210854715202004e-14 -8.8817841970012523e-16 ;
+	setAttr ".tg[1].tor" -type "double3" 0 0 3.1805546814635168e-15 ;
+	setAttr ".rst" -type "double3" 33.999986864499057 0 1.3766765505351941e-14 ;
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
+createNode scaleConstraint -n "Camera_Arm_04_RK_Jnt_scaleConstraint1" -p "Camera_Arm_04_RK_Jnt";
+	rename -uid "E57CA1B5-48A9-AE70-4C2C-388B1BE20591";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_04_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_04_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
+createNode parentConstraint -n "Camera_Arm_03_RK_Jnt_parentConstraint1" -p "Camera_Arm_03_RK_Jnt";
+	rename -uid "9346D165-4D4A-25A4-4846-3CA4BB9E2E71";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_03_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_03_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr ".tg[0].tot" -type "double3" 0 1.4210854715202004e-14 0 ;
+	setAttr ".tg[1].tot" -type "double3" 0 1.4210854715202004e-14 0 ;
+	setAttr ".rst" -type "double3" 39.200065656005705 -1.7763568394002505e-14 -1.1102230246251565e-14 ;
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
+createNode scaleConstraint -n "Camera_Arm_03_RK_Jnt_scaleConstraint1" -p "Camera_Arm_03_RK_Jnt";
+	rename -uid "63A52171-4561-E31B-4D92-EEADE788050A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_03_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_03_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
+createNode parentConstraint -n "Camera_Arm_02_RK_Jnt_parentConstraint1" -p "Camera_Arm_02_RK_Jnt";
+	rename -uid "BFB37743-4481-2078-B924-059C983E6C9B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_02_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_02_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr ".tg[0].tot" -type "double3" 7.1054273576010019e-15 0 0 ;
+	setAttr ".tg[0].tor" -type "double3" -3.8166656177562214e-14 1.1299600123008403e-29 
+		1.9083328088781097e-14 ;
+	setAttr ".tg[1].tot" -type "double3" 7.1054273576010019e-15 0 0 ;
+	setAttr ".tg[1].tor" -type "double3" 0 2.8249000307521015e-30 0 ;
+	setAttr ".lr" -type "double3" -1.9083328088781101e-14 -3.1805546814635152e-15 9.5416640443905503e-15 ;
+	setAttr ".rst" -type "double3" 6.9000015258788849 2.8999998569488183 3.8146972585195726e-06 ;
+	setAttr ".rsrr" -type "double3" -1.9083328088781101e-14 -3.1805546814635152e-15 
+		9.5416640443905503e-15 ;
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
+createNode scaleConstraint -n "Camera_Arm_02_RK_Jnt_scaleConstraint1" -p "Camera_Arm_02_RK_Jnt";
+	rename -uid "DC65D714-4ADA-55BD-76D7-818E9716F91B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Camera_Arm_02_FK_JntW0" -dv 1 -min 
+		0 -at "double";
+	addAttr -dcb 0 -ci true -k true -sn "w1" -ln "Camera_Arm_02_IK_JntW1" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -s 2 ".tg";
+	setAttr -k on ".w0";
+	setAttr -k on ".w1";
 createNode joint -n "L_BK_Leg_01_Jnt" -p "COG_Jnt";
 	rename -uid "59E21232-4998-375D-4C92-59AE8CFDAF38";
 	setAttr ".t" -type "double3" 27.499999999999961 -12.599994659423857 19.999992370605472 ;
@@ -45897,6 +46095,11 @@ createNode joint -n "R_BK_Wheel_02_Jnt" -p "R_BK_Swivel_02_Jnt";
 	setAttr ".jot" -type "string" "none";
 	setAttr ".jo" -type "double3" 89.999999999992326 -9.3428793767886295e-15 5.5063352922835712e-14 ;
 	setAttr ".radi" 4;
+createNode ikHandle -n "Camera_IK_Handle";
+	rename -uid "9A8C84C5-470A-8C65-7064-BA95AD34F218";
+	setAttr ".t" -type "double3" 2.8999998569488352 30.675849914550763 62.794166564941385 ;
+	setAttr ".pv" -type "double3" -4.3571228445175475e-10 1.6422508539356584 1.1414955684309942 ;
+	setAttr ".roc" yes;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "0A3DB5E0-4E6E-022F-83DE-319DD9081C8B";
 	setAttr -s 3 ".lnk";
@@ -46004,6 +46207,8 @@ createNode shadingEngine -n "Body_GeoSG";
 	setAttr -s 4 ".gn";
 createNode materialInfo -n "materialInfo1";
 	rename -uid "4A30A34B-4E73-D148-BE4D-2EB0C9234700";
+createNode ikRPsolver -n "ikRPsolver";
+	rename -uid "C685B5A3-487C-7911-59FD-D0A98ADEE108";
 createNode groupId -n "groupId7";
 	rename -uid "0EAB967B-4165-4172-F218-3693F358CE1E";
 	setAttr ".ihi" 0;
@@ -46017,7 +46222,7 @@ createNode groupId -n "groupId16";
 	rename -uid "D3931A8C-496D-BC54-F3F2-58A7187847FB";
 	setAttr ".ihi" 0;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "108AD5D0-47A9-E73F-67E9-7C9862838C94";
+	rename -uid "D67A5FF0-467A-694E-4BD0-3393CD0DD1DA";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -46097,9 +46302,283 @@ connectAttr "L_Wing_01_Jnt.s" "L_Wing_02_Jnt.is";
 connectAttr "COG_Jnt.s" "FT_Pole_01_Jnt.is";
 connectAttr "FT_Pole_01_Jnt.s" "FT_Pole_02_Jnt.is";
 connectAttr "COG_Jnt.s" "Camera_Arm_01_Jnt.is";
-connectAttr "Camera_Arm_01_Jnt.s" "Camera_Arm_02_Jnt.is";
-connectAttr "Camera_Arm_02_Jnt.s" "Camera_Arm_03_Jnt.is";
-connectAttr "Camera_Arm_03_Jnt.s" "Camera_Arm_04_Jnt.is";
+connectAttr "Camera_Arm_01_Jnt.s" "Camera_Arm_02_FK_Jnt.is";
+connectAttr "Camera_Arm_02_FK_Jnt.s" "Camera_Arm_03_FK_Jnt.is";
+connectAttr "Camera_Arm_03_FK_Jnt.s" "Camera_Arm_04_FK_Jnt.is";
+connectAttr "Camera_Arm_01_Jnt.s" "Camera_Arm_02_IK_Jnt.is";
+connectAttr "Camera_Arm_02_IK_Jnt.s" "Camera_Arm_03_IK_Jnt.is";
+connectAttr "Camera_Arm_03_IK_Jnt.s" "Camera_Arm_04_IK_Jnt.is";
+connectAttr "Camera_Arm_04_IK_Jnt.tx" "effector1.tx";
+connectAttr "Camera_Arm_04_IK_Jnt.ty" "effector1.ty";
+connectAttr "Camera_Arm_04_IK_Jnt.tz" "effector1.tz";
+connectAttr "Camera_Arm_04_IK_Jnt.opm" "effector1.opm";
+connectAttr "Camera_Arm_01_Jnt.s" "Camera_Arm_02_RK_Jnt.is";
+connectAttr "Camera_Arm_02_RK_Jnt_scaleConstraint1.csx" "Camera_Arm_02_RK_Jnt.sx"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_scaleConstraint1.csy" "Camera_Arm_02_RK_Jnt.sy"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_scaleConstraint1.csz" "Camera_Arm_02_RK_Jnt.sz"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.ctx" "Camera_Arm_02_RK_Jnt.tx"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.cty" "Camera_Arm_02_RK_Jnt.ty"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.ctz" "Camera_Arm_02_RK_Jnt.tz"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.crx" "Camera_Arm_02_RK_Jnt.rx"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.cry" "Camera_Arm_02_RK_Jnt.ry"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.crz" "Camera_Arm_02_RK_Jnt.rz"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.s" "Camera_Arm_03_RK_Jnt.is";
+connectAttr "Camera_Arm_03_RK_Jnt_scaleConstraint1.csx" "Camera_Arm_03_RK_Jnt.sx"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_scaleConstraint1.csy" "Camera_Arm_03_RK_Jnt.sy"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_scaleConstraint1.csz" "Camera_Arm_03_RK_Jnt.sz"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.ctx" "Camera_Arm_03_RK_Jnt.tx"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.cty" "Camera_Arm_03_RK_Jnt.ty"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.ctz" "Camera_Arm_03_RK_Jnt.tz"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.crx" "Camera_Arm_03_RK_Jnt.rx"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.cry" "Camera_Arm_03_RK_Jnt.ry"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.crz" "Camera_Arm_03_RK_Jnt.rz"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.s" "Camera_Arm_04_RK_Jnt.is";
+connectAttr "Camera_Arm_04_RK_Jnt_scaleConstraint1.csx" "Camera_Arm_04_RK_Jnt.sx"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_scaleConstraint1.csy" "Camera_Arm_04_RK_Jnt.sy"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_scaleConstraint1.csz" "Camera_Arm_04_RK_Jnt.sz"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.ctx" "Camera_Arm_04_RK_Jnt.tx"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.cty" "Camera_Arm_04_RK_Jnt.ty"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.ctz" "Camera_Arm_04_RK_Jnt.tz"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.crx" "Camera_Arm_04_RK_Jnt.rx"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.cry" "Camera_Arm_04_RK_Jnt.ry"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.crz" "Camera_Arm_04_RK_Jnt.rz"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.ro" "Camera_Arm_04_RK_Jnt_parentConstraint1.cro"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.pim" "Camera_Arm_04_RK_Jnt_parentConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.rp" "Camera_Arm_04_RK_Jnt_parentConstraint1.crp"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.rpt" "Camera_Arm_04_RK_Jnt_parentConstraint1.crt"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.jo" "Camera_Arm_04_RK_Jnt_parentConstraint1.cjo"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.t" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.rp" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.rpt" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.r" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.ro" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.s" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.pm" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.jo" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.ssc" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.is" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.w0" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.t" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tt"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.rp" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].trp"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.rpt" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].trt"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.r" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tr"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.ro" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tro"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.s" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.pm" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.jo" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tjo"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.ssc" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tsc"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.is" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tis"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_parentConstraint1.w1" "Camera_Arm_04_RK_Jnt_parentConstraint1.tg[1].tw"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.ssc" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tsc"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt.pim" "Camera_Arm_04_RK_Jnt_scaleConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.s" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_04_FK_Jnt.pm" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_scaleConstraint1.w0" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.s" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_04_IK_Jnt.pm" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_04_RK_Jnt_scaleConstraint1.w1" "Camera_Arm_04_RK_Jnt_scaleConstraint1.tg[1].tw"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.ro" "Camera_Arm_03_RK_Jnt_parentConstraint1.cro"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.pim" "Camera_Arm_03_RK_Jnt_parentConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.rp" "Camera_Arm_03_RK_Jnt_parentConstraint1.crp"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.rpt" "Camera_Arm_03_RK_Jnt_parentConstraint1.crt"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.jo" "Camera_Arm_03_RK_Jnt_parentConstraint1.cjo"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.t" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.rp" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.rpt" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.r" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.ro" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.s" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.pm" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.jo" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.ssc" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.is" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.w0" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.t" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tt"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.rp" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].trp"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.rpt" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].trt"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.r" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tr"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.ro" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tro"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.s" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.pm" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.jo" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tjo"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.ssc" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tsc"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.is" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tis"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_parentConstraint1.w1" "Camera_Arm_03_RK_Jnt_parentConstraint1.tg[1].tw"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.ssc" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tsc"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt.pim" "Camera_Arm_03_RK_Jnt_scaleConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.s" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_03_FK_Jnt.pm" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_scaleConstraint1.w0" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.s" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_03_IK_Jnt.pm" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_03_RK_Jnt_scaleConstraint1.w1" "Camera_Arm_03_RK_Jnt_scaleConstraint1.tg[1].tw"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.ro" "Camera_Arm_02_RK_Jnt_parentConstraint1.cro"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.pim" "Camera_Arm_02_RK_Jnt_parentConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.rp" "Camera_Arm_02_RK_Jnt_parentConstraint1.crp"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.rpt" "Camera_Arm_02_RK_Jnt_parentConstraint1.crt"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.jo" "Camera_Arm_02_RK_Jnt_parentConstraint1.cjo"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.t" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.rp" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.rpt" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.r" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.ro" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.s" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.pm" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.jo" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.ssc" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.is" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.w0" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.t" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tt"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.rp" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].trp"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.rpt" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].trt"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.r" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tr"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.ro" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tro"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.s" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.pm" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.jo" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tjo"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.ssc" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tsc"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.is" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tis"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_parentConstraint1.w1" "Camera_Arm_02_RK_Jnt_parentConstraint1.tg[1].tw"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.ssc" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tsc"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt.pim" "Camera_Arm_02_RK_Jnt_scaleConstraint1.cpim"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.s" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Camera_Arm_02_FK_Jnt.pm" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_scaleConstraint1.w0" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.s" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[1].ts"
+		;
+connectAttr "Camera_Arm_02_IK_Jnt.pm" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[1].tpm"
+		;
+connectAttr "Camera_Arm_02_RK_Jnt_scaleConstraint1.w1" "Camera_Arm_02_RK_Jnt_scaleConstraint1.tg[1].tw"
+		;
 connectAttr "COG_Jnt.s" "L_BK_Leg_01_Jnt.is";
 connectAttr "L_BK_Leg_01_Jnt.s" "L_BK_Leg_02_Jnt.is";
 connectAttr "L_BK_Leg_02_Jnt.s" "L_BK_Swivel_01_Jnt.is";
@@ -46120,6 +46599,9 @@ connectAttr "R_BK_Leg_02_Jnt.s" "R_BK_Swivel_01_Jnt.is";
 connectAttr "R_BK_Swivel_01_Jnt.s" "R_BK_Wheel_01_Jnt.is";
 connectAttr "R_BK_Leg_02_Jnt.s" "R_BK_Swivel_02_Jnt.is";
 connectAttr "R_BK_Swivel_02_Jnt.s" "R_BK_Wheel_02_Jnt.is";
+connectAttr "Camera_Arm_02_IK_Jnt.msg" "Camera_IK_Handle.hsj";
+connectAttr "effector1.hp" "Camera_IK_Handle.hee";
+connectAttr "ikRPsolver.msg" "Camera_IK_Handle.hsv";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Body_GeoSG.message" ":defaultLightSet.message";
@@ -46182,4 +46664,5 @@ connectAttr "lambert2.msg" "materialInfo1.m";
 connectAttr "Body_GeoSG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
 // End of RoverRig.ma
