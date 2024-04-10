@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: DolphinModel.ma
-//Last modified: Tue, Apr 09, 2024 11:23:29 PM
+//Last modified: Tue, Apr 09, 2024 11:26:12 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -14,19 +14,19 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "E39862C8-44BB-59DB-6A8D-8BA3B3D51F32";
+fileInfo "UUID" "37F9878A-4DDF-2157-D405-1EAF4A92CBF1";
 createNode transform -s -n "persp";
 	rename -uid "17C9C816-4FB6-3CBA-7ECE-639A3FD5ACED";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 27.888780569992829 2.3593033555241409 11.448309009050504 ;
-	setAttr ".r" -type "double3" -2.1383532934198231 799.79999999992128 0 ;
+	setAttr ".t" -type "double3" 31.345643344320308 1.5607001845822155 7.7210337423488538 ;
+	setAttr ".r" -type "double3" -1.5383532935002253 801.79999999977247 -6.9685954462936734e-16 ;
 	setAttr ".rp" -type "double3" 1.7763568394002505e-15 -4.4408920985006262e-16 0 ;
 	setAttr ".rpt" -type "double3" -1.5210517175969331e-15 8.2505930217911364e-18 -1.7599780799917684e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "CE5BD8D6-4163-E71A-CD28-25988E457925";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 28.13880348648884;
+	setAttr ".coi" 30.879411146000521;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -39315,10 +39315,12 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[4].nvs" 1923;
 createNode displayLayer -n "Geo_Layer";
 	rename -uid "566825CA-4BBE-DD57-D01E-B8A068D7733D";
+	setAttr ".dt" 2;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 3;
 createNode displayLayer -n "Jnt_Layer";
 	rename -uid "9AC089DD-48C7-64B2-7924-37921B7F126E";
+	setAttr ".dt" 2;
 	setAttr ".v" no;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 2;
@@ -50656,7 +50658,7 @@ createNode skinCluster -n "skinCluster6";
 	setAttr ".mi" 5;
 	setAttr ".ucm" yes;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "984C38E5-448C-7DEF-87F7-FAB4B56E65F5";
+	rename -uid "FE87A1A3-44E8-03B7-2083-3D89E8DF8341";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr -av -k on ".cch";
